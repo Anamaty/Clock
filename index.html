@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by Anamaty (http://jsbin.com/kenubir/14/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Clock</title>
+  <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet" type="text/css">
+<style id="jsbin-css">
+ * { margin: 0; padding: 0; };
+
+
+
+#clock {
+  text-align: center;
+}
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+ top:50%;
+  font-family: 'Nixie One', cursive;
+  font-size: 68px;
+  margin-top: -34px;/*aliniezi centrul elementului la centru, de aceea utilizezi jumătate din el*/
+}
+
+
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock() {
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds(); 
+
+// dacă
+// variabila 'seconds' este mai mică decât 10
+// ar trebui să fie un zero înainte de a o converti la text
+
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+  if (minutes < 10) {
+      minutes = '0' + minutes;
+      }
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+
+var clockFace = hours + ':' + minutes + ':' + seconds;
+   var hexColor = '#' + 'ff' + minutes + seconds;
+document.getElementById('clock').innerHTML = clockFace; 
+  document.body.style.background = hexColor;
+   setTimeout(function() {
+  colorClock();
+   }, 1000);
+   }
+colorClock();
+
+
+</script>
+</body>
+</html>
