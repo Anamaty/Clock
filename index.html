@@ -62,7 +62,7 @@ if (seconds < 10) {
   }
 
 var clockFace = hours + ':' + minutes + '^' + seconds;
-   var hexColor = '#' + minutes + 'ff' + hours;
+   var hexColor = '#' + 'ff' + minutes + seconds;
 document.getElementById('clock').innerHTML = clockFace; 
   document.body.style.background = hexColor;
    setTimeout(function() {
